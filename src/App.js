@@ -13,60 +13,60 @@ import About from './Components/About';
 
 
 function App() {
-  const [mode,SetMode] = useState('light');
-  const [alert,setAlert] = useState(null);
- 
-  const showAlert =(message,type)=>{
+  const [mode, SetMode] = useState('light');
+  const [alert, setAlert] = useState(null);
+
+  const showAlert = (message, type) => {
     setAlert({
-      msg:message,
-      type:type
+      msg: message,
+      type: type
     })
     setTimeout(() => {
       setAlert(null);
     }, 1500);
 
   }
-  const toggleMode=()=>{
-    if(mode==='light'){
+  const toggleMode = () => {
+    if (mode === 'light') {
       SetMode('dark');
-      document.body.style.backgroundColor='grey';
-      document.body.style.textColor='dark';
-      showAlert('Dark Mode has been Enabled','success');
-    }else{
+      document.body.style.backgroundColor = 'grey';
+      document.body.style.textColor = 'dark';
+      showAlert('Dark Mode has been Enabled', 'success');
+    } else {
       SetMode('light');
-      document.body.style.backgroundColor='white';
-      document.body.style.textColor='white';
-      showAlert('Light Mode has been Enabled','success');
-  }
+      document.body.style.backgroundColor = 'white';
+      document.body.style.textColor = 'white';
+      showAlert('Light Mode has been Enabled', 'success');
+    }
   }
 
-  
+
 
 
   return (
-   
+
     <>
-    <Navbar mode={mode} toggleMode={toggleMode} title="TextUtils" homeText="Home" aboutText="About" />
-    <div className="container"><Alert alert={alert}/></div>
-        {/* <Routes> */}
-        {/* <Route path="/" element={<FormsText />} /> */}
-       
-        {/* <Route path="/" element={ <div className="container"> <FormsText mode={mode} showAlert={showAlert} /> </div>} /> */}
-        <div className="container"> <FormsText mode={mode} showAlert={showAlert} /> </div>
-        {/* <Route exact path="about" element={
+      <Navbar mode={mode} toggleMode={toggleMode} title="TextUtils" homeText="Home" aboutText="About" />
+      <div className="container"><Alert alert={alert} /></div>
+      {/* <Routes> */}
+      {/* <Route path="/" element={<FormsText />} /> */}
+
+      {/* <Route path="/" element={ <div className="container"> <FormsText mode={mode} showAlert={showAlert} /> </div>} /> */}
+      <div className="container"> <FormsText mode={mode} showAlert={showAlert} /> </div>
+      {/* <Route exact path="about" element={
           <div className="container">
             <About />
             </div>
             } /> */}
 
-          
-        
+
+
       {/* </Routes> */}
     </>
-     
-     
-   
-     );
+
+
+
+  );
 }
 
 export default App;
